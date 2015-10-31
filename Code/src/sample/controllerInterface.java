@@ -9,6 +9,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
+import sample.logicalPack.*;
 
 public class controllerInterface {
 
@@ -41,9 +42,9 @@ public class controllerInterface {
     @FXML
     private void calcFiz(){
 
-        boolean flagForAge;
-        boolean flagForValue;
-        boolean flagForCost;
+        boolean flagForAge=false;
+        boolean flagForValue=false;
+        boolean flagForCost=false;
         String costStrFiz=costFiz.getText();
         String valueStrFiz=valueFiz.getText();
         double costAutoResult=0;
@@ -56,70 +57,63 @@ public class controllerInterface {
                 !checkOneFiz.isSelected()&&!checkTwoFiz.isSelected()&&!checkThreeFiz.isSelected()||
                 checkOneFiz.isSelected()&&checkTwoFiz.isSelected()&&checkThreeFiz.isSelected())
             {
-                logic.lineSet(lineFirstFiz);
-                flagForAge=false;
+                checkingErrors.lineSet(lineFirstFiz,flagForAge);
             }
         else
             {
-                logic.lineDrop(lineFirstFiz);
-                flagForAge=true;
+                checkingErrors.lineDrop(lineFirstFiz,flagForAge);
             }
-        if(!logic.checkString(costStrFiz))
+        if(!checkingErrors.checkString(costStrFiz))
             {
-                logic.lineSet(lineThridFiz);
-                flagForCost=false;
+                checkingErrors.lineSet(lineThridFiz,flagForCost);
             }
         else
             {
-                logic.lineDrop(lineThridFiz);
-                flagForCost=true;
+                checkingErrors.lineDrop(lineThridFiz,flagForCost);
                 costAuto=Integer.parseInt(costStrFiz);
             }
-        if(!logic.checkString(valueStrFiz))
+        if(!checkingErrors.checkString(valueStrFiz))
             {
-                logic.lineSet(lineSecondFiz);
-                flagForValue=false;
+                checkingErrors.lineSet(lineSecondFiz,flagForValue);
             }
         else
             {
-                logic.lineDrop(lineThridFiz);
-                flagForValue=true;
+                checkingErrors.lineDrop(lineThridFiz,flagForValue);
                 valueAuto=Integer.parseInt(valueStrFiz);
             }
         if(costAuto<=0)
             {
-               logic.lineSet(lineThridFiz);
-               flagForCost=false;
+               checkingErrors.lineSet(lineThridFiz,flagForCost);
             }
         else
             {
-               logic.lineDrop(lineThridFiz);
-               flagForCost=true;
+               checkingErrors.lineDrop(lineThridFiz,flagForCost);
             }
         if(valueAuto<=0)
             {
-                logic.lineSet(lineSecondFiz);
-                flagForValue=false;
+                checkingErrors.lineSet(lineSecondFiz,flagForValue);
             }
         else
             {
-                logic.lineDrop(lineSecondFiz);
-                flagForValue=true;
+                checkingErrors.lineDrop(lineSecondFiz,flagForValue);
             }
 
 
 
         if(checkOneFiz.isSelected()&&!checkTwoFiz.isSelected()&&!checkThreeFiz.isSelected())
             {
-                costAutoResult=logic.Fiz1(costAuto,valueAuto, costAutoResult);
+                logicAbstaract start1=new logicFiz_0to3();
+                costAutoResult=start1.logic(costAuto,valueAuto, costAutoResult);
             }
         if(!checkOneFiz.isSelected()&&checkTwoFiz.isSelected()&&!checkThreeFiz.isSelected())
             {
-                costAutoResult=logic.Fiz2(valueAuto, costAutoResult);
+                logicAbstaract start2=new logicFiz_3to5();
+                costAutoResult=start2.logic(costAuto, valueAuto, costAutoResult);
             }
         if(!checkOneFiz.isSelected()&&!checkTwoFiz.isSelected()&&checkThreeFiz.isSelected())
             {
-                costAutoResult=logic.Fiz3(valueAuto, costAutoResult);
+                logicAbstaract start3=new logicFiz_5to9();
+                costAutoResult=start3.logic(costAuto, valueAuto, costAutoResult);
             }
 
         if(flagForAge&&flagForValue&&flagForCost)
@@ -129,10 +123,10 @@ public class controllerInterface {
     @FXML
     private void calcJur(){
 
-        boolean flagForAge;
-        boolean flagForValue;
-        boolean flagForCost;
-        boolean flagForType;
+        boolean flagForAge = false;
+        boolean flagForValue = false;
+        boolean flagForCost = false;
+        boolean flagForType = false;
 
         if(checkOneJur.isSelected()&&checkTwoJur.isSelected()&&!checkThreeJur.isSelected()||
                 checkOneJur.isSelected()&&!checkTwoJur.isSelected()&&checkThreeJur.isSelected()||
@@ -140,25 +134,21 @@ public class controllerInterface {
                 !checkOneJur.isSelected()&&!checkTwoJur.isSelected()&&!checkThreeJur.isSelected()||
                 checkOneJur.isSelected()&&checkTwoJur.isSelected()&&checkThreeJur.isSelected())
             {
-                logic.lineSet(lineFirstJur);
-                flagForAge=false;
+                checkingErrors.lineSet(lineFirstJur,flagForAge);
             }
             else
             {
-                logic.lineDrop(lineFirstJur);
-                flagForAge=true;
+                checkingErrors.lineDrop(lineFirstJur,flagForAge);
             }
 
         if(Dt.isSelected()&&Benz.isSelected()||
                 !Dt.isSelected()&&!Benz.isSelected())
         {
-            logic.lineSet(lineSecondJur);
-            flagForType=false;
+            checkingErrors.lineSet(lineSecondJur,flagForType);
         }
         else
         {
-            logic.lineDrop(lineSecondJur);
-            flagForType=true;
+            checkingErrors.lineDrop(lineSecondJur,flagForType);
         }
 
         String costStrJur=costJur.getText();
@@ -167,77 +157,75 @@ public class controllerInterface {
         double costAuto=0;
         double valueAuto=0;
 
-        if(!logic.checkString(costStrJur))
+        if(!checkingErrors.checkString(costStrJur))
         {
-            logic.lineSet(lineFourthJur);
-            flagForCost=false;
+            checkingErrors.lineSet(lineFourthJur,flagForCost);
         }
         else
         {
-            logic.lineDrop(lineFourthJur);
-            flagForCost=true;
+            checkingErrors.lineDrop(lineFourthJur,flagForCost);
             costAuto=Integer.parseInt(costStrJur);
         }
-        if(!logic.checkString(valueStrJur))
+        if(!checkingErrors.checkString(valueStrJur))
         {
-            logic.lineSet(lineThridJur);
-            flagForType=false;
+            checkingErrors.lineSet(lineThridJur,flagForType);
         }
         else
         {
-            logic.lineDrop(lineThridJur);
-            flagForValue=true;
+            checkingErrors.lineDrop(lineThridJur,flagForValue);
             valueAuto=Integer.parseInt(valueStrJur);
         }
         if(costAuto<=0)
         {
-            logic.lineSet(lineFourthJur);
-            flagForCost=false;
+            checkingErrors.lineSet(lineFourthJur,flagForCost);
         }
         else
         {
-            logic.lineDrop(lineFourthJur);
-            flagForCost=true;
+            checkingErrors.lineDrop(lineFourthJur,flagForCost);
         }
         if(valueAuto<=0)
         {
-            logic.lineSet(lineThridJur);
-            flagForValue=false;
+            checkingErrors.lineSet(lineThridJur,flagForValue);
         }
         else
         {
-            logic.lineDrop(lineThridJur);
-            flagForValue=true;
+            checkingErrors.lineDrop(lineThridJur,flagForValue);
         }
         if(Benz.isSelected())
         {
             if (checkOneJur.isSelected() && !checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur1_benz(costAuto,valueAuto,costAutoResult);
+                    logicAbstaract start1=new logicJurBenz_0to3();
+                    start1.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur2_benz(costAuto, valueAuto, costAutoResult);
+                    logicAbstaract start2=new logicJurBenz_3to5();
+                    start2.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && !checkTwoJur.isSelected() && checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur3_benz(valueAuto, costAutoResult);
+                    logicAbstaract start3=new logicJurBenz_5to9();
+                    start3.logic(costAuto,valueAuto,costAutoResult);
                 }
         }
 
         if (Dt.isSelected()) {
             if (checkOneJur.isSelected() && !checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur1_diz(costAuto, valueAuto, costAutoResult);
+                    logicAbstaract start1=new logicJurDiz_0to3();
+                    start1.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur2_diz(costAuto, valueAuto,costAutoResult);
+                    logicAbstaract start1=new logicJurDiz_3to5();
+                    start1.logic(costAuto,valueAuto,costAutoResult);
                 }
 
             if (!checkOneJur.isSelected() && !checkTwoJur.isSelected() && checkThreeJur.isSelected())
                 {
-                    costAutoResult=logic.Jur3_diz(valueAuto, costAutoResult);
+                    logicAbstaract start1=new logicJurDiz_5to9();
+                    start1.logic(costAuto,valueAuto,costAutoResult);
                 }
         }
         if(flagForAge&&flagForValue&&flagForCost&&flagForType)

@@ -16,6 +16,7 @@ public class Main extends Application {
         primaryStage.setTitle("Calculator of customs dues");
         primaryStage.setScene(new Scene(root, 390, 465));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
