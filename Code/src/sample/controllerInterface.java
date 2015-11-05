@@ -116,7 +116,7 @@ public class controllerInterface {
                 costAutoResult=start3.logic(costAuto, valueAuto, costAutoResult);
             }
 
-        if(flagForAge&&flagForValue&&flagForCost)
+        if(!flagForAge&&!flagForValue&&!flagForCost)
         resultFiz.setText("Custom dues is "+Integer.toString((int) costAutoResult) +" euro");
     }
 
@@ -196,17 +196,17 @@ public class controllerInterface {
             if (checkOneJur.isSelected() && !checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
                     logicAbstaract start1=new logicJurBenz_0to3();
-                    start1.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult=start1.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
                     logicAbstaract start2=new logicJurBenz_3to5();
-                    start2.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult=start2.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && !checkTwoJur.isSelected() && checkThreeJur.isSelected())
                 {
                     logicAbstaract start3=new logicJurBenz_5to9();
-                    start3.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult= start3.logic(costAuto,valueAuto,costAutoResult);
                 }
         }
 
@@ -214,21 +214,21 @@ public class controllerInterface {
             if (checkOneJur.isSelected() && !checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
                     logicAbstaract start1=new logicJurDiz_0to3();
-                    start1.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult=start1.logic(costAuto,valueAuto,costAutoResult);
                 }
             if (!checkOneJur.isSelected() && checkTwoJur.isSelected() && !checkThreeJur.isSelected())
                 {
                     logicAbstaract start1=new logicJurDiz_3to5();
-                    start1.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult=start1.logic(costAuto,valueAuto,costAutoResult);
                 }
 
             if (!checkOneJur.isSelected() && !checkTwoJur.isSelected() && checkThreeJur.isSelected())
                 {
                     logicAbstaract start1=new logicJurDiz_5to9();
-                    start1.logic(costAuto,valueAuto,costAutoResult);
+                    costAutoResult=start1.logic(costAuto,valueAuto,costAutoResult);
                 }
         }
-        if(flagForAge&&flagForValue&&flagForCost&&flagForType)
+        if(!flagForAge&&!flagForValue&&!flagForCost&&!flagForType)
         resultJur.setText("Custom dues is "+Integer.toString((int) costAutoResult) +" euro");
 
     }
