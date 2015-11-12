@@ -7,6 +7,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import sample.logicalPack.*;
@@ -22,14 +23,14 @@ public class controllerInterface {
                       costJur,
                       valueJur;
     @FXML
-    private CheckBox checkOneFiz,
-                     checkTwoFiz,
-                     checkThreeFiz,
-                     checkOneJur,
-                     checkTwoJur,
-                     checkThreeJur,
-                     Dt,
-                     Benz;
+    private RadioButton checkOneFiz,
+                        checkTwoFiz,
+                        checkThreeFiz,
+                        checkOneJur,
+                        checkTwoJur,
+                        checkThreeJur,
+                        Dt,
+                        Benz;
     @FXML
     private Rectangle lineFirstFiz,
                       lineSecondFiz,
