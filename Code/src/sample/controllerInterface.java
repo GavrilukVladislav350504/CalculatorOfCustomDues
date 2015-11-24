@@ -57,13 +57,7 @@ public class controllerInterface {
                 !checkOneFiz.isSelected()&&checkTwoFiz.isSelected()&&checkThreeFiz.isSelected()||
                 !checkOneFiz.isSelected()&&!checkTwoFiz.isSelected()&&!checkThreeFiz.isSelected()||
                 checkOneFiz.isSelected()&&checkTwoFiz.isSelected()&&checkThreeFiz.isSelected())
-            {
-                checkingErrors.lineSet(lineFirstFiz,flagForAge);
-            }
-        else
-            {
-                checkingErrors.lineDrop(lineFirstFiz,flagForAge);
-            }
+
         if(!checkingErrors.checkString(costStrFiz))
             {
                 checkingErrors.lineSet(lineThridFiz,flagForCost);
@@ -134,13 +128,7 @@ public class controllerInterface {
                 !checkOneJur.isSelected()&&checkTwoJur.isSelected()&&checkThreeJur.isSelected()||
                 !checkOneJur.isSelected()&&!checkTwoJur.isSelected()&&!checkThreeJur.isSelected()||
                 checkOneJur.isSelected()&&checkTwoJur.isSelected()&&checkThreeJur.isSelected())
-            {
-                checkingErrors.lineSet(lineFirstJur,flagForAge);
-            }
-            else
-            {
-                checkingErrors.lineDrop(lineFirstJur,flagForAge);
-            }
+
 
         if(Dt.isSelected()&&Benz.isSelected()||
                 !Dt.isSelected()&&!Benz.isSelected())
