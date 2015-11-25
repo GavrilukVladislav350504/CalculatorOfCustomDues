@@ -3,9 +3,10 @@ package sample.logicalPack;
 /**
  * Created by Влад on 29.10.2015.
  */
-public class logicFiz_0to3 extends logicAbstaract {
+public class logicFiz_0to3 implements logicAbstaract {
     @Override
-    public double logic(double costAuto, double valueAuto, double costAutoResult) {
+    public double logic(double costAuto, double valueAuto) {
+        double costAutoResult = 0;
         if (costAuto <= 8500)
         {
             costAutoResult = costAuto*0.54;
@@ -44,4 +45,5 @@ public class logicFiz_0to3 extends logicAbstaract {
         }
         return costAutoResult;
     }
+
 }

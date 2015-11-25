@@ -9,20 +9,19 @@ import javafx.util.Duration;
  */
 public class checkingErrors {
 
-    public static void lineSet(Rectangle line,boolean flag){
-        flag=false;
+    public static boolean lineSet(Rectangle line){
         FadeTransition ft = new FadeTransition(Duration.millis(200), line);
         ft.setToValue(1.0);
         ft.setAutoReverse(true);
         ft.play();
-
+        return false;
     }
-    public static void lineDrop(Rectangle line,boolean flag){
-        flag=true;
+    public static boolean lineDrop(Rectangle line){
         FadeTransition ft = new FadeTransition(Duration.millis(200), line);
         ft.setToValue(0.0);
         ft.setAutoReverse(true);
         ft.play();
+        return true;
     }
 
     public static boolean checkString(String string){
