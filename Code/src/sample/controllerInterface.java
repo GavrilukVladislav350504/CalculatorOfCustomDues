@@ -31,19 +31,19 @@ public class controllerInterface {
                         Dt,
                         Benz;
     @FXML
-    private Rectangle lineFirstFiz,
-                      lineSecondFiz,
-                      lineThridFiz,
-                      lineFirstJur,
-                      lineSecondJur,
-                      lineThridJur,
-                      lineFourthJur;
+    private Rectangle lineSecondFiz;
+    @FXML
+    private Rectangle lineThridFiz;
+    @FXML
+    private Rectangle lineThridJur;
+    @FXML
+    private Rectangle lineFourthJur;
 
     @FXML
     private void calcFiz(){
 
-        boolean flagForValue=false;
-        boolean flagForCost=false;
+        boolean flagForValue;
+        boolean flagForCost;
 
         String costStrFiz=costFiz.getText();
         String valueStrFiz=valueFiz.getText();
@@ -111,11 +111,8 @@ public class controllerInterface {
     @FXML
     private void calcJur(){
 
-        boolean flagForAge = false;
-        boolean flagForValue = false;
-        boolean flagForCost = false;
-        boolean flagForType = false;
-
+        boolean flagForValue;
+        boolean flagForCost;
         String costStrJur=costJur.getText();
         String valueStrJur=valueJur.getText();
         double costAutoResult=0;
@@ -193,7 +190,7 @@ public class controllerInterface {
                     costAutoResult=start1.logic(costAuto,valueAuto);
                 }
         }
-        if(!flagForAge&&!flagForValue&&!flagForCost&&!flagForType)
+        if(flagForValue&&flagForCost)
         resultJur.setText("Custom dues is "+Integer.toString((int) costAutoResult) +" euro");
 
     }

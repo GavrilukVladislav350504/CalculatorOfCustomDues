@@ -10,6 +10,16 @@ import static junit.framework.Assert.assertEquals;
 /**
  * Created by Влад on 13.11.2015.
  */
+
+/**
+ * This class is created fot testing calculated part of logic for juridical users and diesel fuel.
+ * This tests showed in :
+ *      class "logicJurDiz_0to3" ===> method "logicJurDiz_0to3_Test"
+ *      class "logicJurDiz_3to5" ===> method "logicJurDiz_3to5_Test"
+ *      class "logicJurDiz_5to9" ===> method "logicJurDiz_5to9_Test"
+ *
+ *      Information for assertEquals from http://auto.tut.by/custom_dues
+*/
 public class logicTest_JurDiz {
     @Test
     public void logicJurDiz_0to3_Test(){
