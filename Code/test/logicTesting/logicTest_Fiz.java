@@ -19,7 +19,7 @@ import static  junit.framework.Assert.*;
  */
 public class logicTest_Fiz {
 
-    @Test
+    @Test(timeout = 1000)
     public void logicFiz_0to3_Test(){
         logicFiz_0to3 fiz_0to3 = new logicFiz_0to3();
         Long L;
@@ -46,7 +46,7 @@ public class logicTest_Fiz {
         assertEquals(i,23833);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void logicFiz_3to5_Test(){
         logicFiz_3to5 fiz_3to5 = new logicFiz_3to5();
         Long L;
@@ -73,7 +73,7 @@ public class logicTest_Fiz {
         assertEquals(i,34319);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void logicFiz_5to9_Test(){
         logicFiz_5to9 fiz_5to9 = new logicFiz_5to9();
         Long L;

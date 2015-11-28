@@ -21,7 +21,7 @@ import static junit.framework.Assert.assertEquals;
  *      Information for assertEquals from http://auto.tut.by/custom_dues
  */
 public class logicTest_JurBenz {
-    @Test
+    @Test(timeout = 1000)
     public void logicJurBenz_0to3_Test(){
         logicJurBenz_0to3 jur_0to3 = new logicJurBenz_0to3();
         Long L;
@@ -48,7 +48,7 @@ public class logicTest_JurBenz {
         assertEquals(i,26692);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void logicJurBenz_3to5_Test(){
         logicJurBenz_3to5 jur_3to5 = new logicJurBenz_3to5();
         Long L;
@@ -75,7 +75,7 @@ public class logicTest_JurBenz {
         assertEquals(i,26692);
     }
 
-    @Test
+    @Test(timeout = 1000)
     public void logicJurBenz_5to9_Test(){
         logicJurBenz_5to9 jur_5to9 = new logicJurBenz_5to9();
         Long L;
